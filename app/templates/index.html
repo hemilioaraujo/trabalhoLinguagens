@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <h3 class="display-5">Gerador de tabelas de token e gramática</h3>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="expression">Expressão:</label>
+            <textarea class="form-control m-2" type="text" name="expression" id="expression" maxlength="300"
+                rows="1"></textarea>
+
+            <input class="btn btn-primary m-2" type="submit" value="Gerar Tabelas">
+        </div>
+    </form>
+
+
+    {% if tokens %}
+    <table class="table table-striped table-inverse table-responsive">
+        <thead class="thead-inverse">
+            <tr>
+                <th>Token</th>
+                <th>Posição Inicial</th>
+                <th>Posição Final</th>
+                <th>Código</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for token in tokens%}
+            <tr>
+                <!-- {% for i in token %}
+                        <td>{{i}}</td>
+                    {% endfor %}     -->
+                <td scope="row">{{token[2]}}</td>
+                <td>{{token[0]}}</td>
+                <td>{{token[1]}}</td>
+                <td>{{token[3]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+    <p>Preencha o campo de expressão e gere as tabelas!</p>
+    {% endif %}
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

@@ -1,7 +1,8 @@
 from flask.globals import request
 from app import app
 from flask import render_template
-from app.controllers.functions import getTokens
+from app.controllers.token import getTokens
+from app.controllers.grammar import getGrammar
 
 
 @app.route('/hello')

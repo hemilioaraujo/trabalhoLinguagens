@@ -1,11 +1,11 @@
-from app.controllers import functions as f
-from app.models import gramatica as gr
+from app.controllers import grammar
+from app.controllers import token
 from pprint import pprint
 
 expression = "3+2"
 
-tokens = f.getTokens(expression)
-grammar = gr.getGrammar(tokens)
+tokens = token.getTokens(expression)
+grammar = grammar.getGrammar(tokens)
 
 for i in grammar:
     print(i)

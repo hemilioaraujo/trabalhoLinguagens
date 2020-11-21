@@ -14,6 +14,8 @@ def hello_world():
 def index():
     if request.method == 'POST':
         tokens = getTokens(request.form['expression'])
+        grammar = getGrammar(tokens)
     else:
         tokens = None
-    return render_template('index.html', tokens=tokens)
+        grammar = None
+    return render_template('index.html', tokens=tokens, grammar=grammar)
